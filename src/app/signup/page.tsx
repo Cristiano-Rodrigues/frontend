@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Logo from "./ui/logo";
+import Logo from "../ui/logo";
 import Link from "next/link";
 
-export default function Login () {
+export default function Signup () {
   return (
     <main className="flex flex-col w-full relative overflow-hidden text-sm text-veryDarkGray md:h-screen md:flex-row">
       <div className="w-full h-full p-12 md:w-1/2">
@@ -22,10 +22,15 @@ export default function Login () {
       <div className="flex justify-center items-center bg-white w-full h-full p-12 z-10 shadow-2xl md:w-1/2">
         <div className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]">
           <div>
-            <h2 className="text-3xl mb-4">Faça Login</h2>
+            <h2 className="text-3xl mb-4">Crie sua conta</h2>
             <p>Preencha os campos requisitados abaixo</p>
           </div>
           <div className="flex flex-col">
+          <input
+              placeholder="Seu nome completo"
+              type="text"
+              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2"
+            />
             <input
               placeholder="Seu email"
               type="email"
@@ -37,43 +42,26 @@ export default function Login () {
               className="w-full h-[50px] bg-lightestGray px-4 py-2"  
             />
           </div>
-          <div className="flex justify-between">
-            <div className="flex items-center gap-1">
-              <input type="checkbox" id="keep-logged-in" />
-              <label
-                className="cursor-pointer select-none"
-                htmlFor="keep-logged-in"
-              >
-                Mantenha-me logado
-              </label>
-            </div>
-            <Link
-              className="underline text-gray-400"
-              href="/help"
-            >
-              Esqueceu sua senha?
-            </Link>
-          </div>
           <div className="flex flex-col gap-2 items-center">
             <button
               className="w-full h-[50px] bg-primary-100 text-white rounded"
             >
-              Login
+              Criar conta
             </button>
             <span className="font-bold">Ou</span>
             <button
               className="w-full h-[50px] bg-gray-300 font-bold rounded"
             >
-              Faça Login com o Google
+              Inicie com o Google
             </button>
           </div>
           <p className="m-auto">
-            Novo no Ez Pharma?{' '}
+            Já possui uma conta?{' '}
             <Link
               className="underline text-gray-400"
-              href="/signup"
+              href="/"
             >
-              Criar conta.
+              Fazer login.
             </Link>
           </p>
         </div>
