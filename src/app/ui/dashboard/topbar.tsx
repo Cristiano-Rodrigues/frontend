@@ -7,7 +7,7 @@ export function Topbar () {
         <label htmlFor="outlet">Escolha a farmácia</label>
         <select
           id="outlet"
-          className="min-w-60 h-[30px] bg-lightestGray"
+          className="border-none min-w-60 h-[35px] bg-lightestGray"
         ></select>
       </div>
       <div className="flex items-center gap-2">
