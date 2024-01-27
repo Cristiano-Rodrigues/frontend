@@ -11,7 +11,7 @@ export default function Login () {
           className="mb-4"
         />
         <h1 className="text-3xl mb-2 md:text-4xl">Gerir sua farmácia nunca foi tão fácil.</h1>
-        <h4 className="text-xs font-bold">Crie sua conta e experimente mais facilidade.</h4>
+        <h4 className="text-xs font-bold md:text-sm">Crie sua conta e experimente mais facilidade.</h4>
         <Image
           className="hidden absolute bottom-[-300px] left-0 md:block"
           width={1164}
