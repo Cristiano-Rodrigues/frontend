@@ -1,4 +1,4 @@
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { BeakerIcon, CubeIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { RightSideBar } from "../ui/dashboard/right-side-bar";
 import Link from "next/link";
 
@@ -6,15 +6,17 @@ const InfoCard = ({
   title,
   amount,
   rate,
+  icon,
 }: {
   title: string;
   amount: number;
   rate: number;
+  icon: React.ReactNode;
 }) => (
   <div className="flex items-center w-1/3 h-[135px] p-6 gap-4 bg-white rounded-md">
     <div>
       <div className="flex justify-center items-center w-10 h-10 bg-primary-25 rounded-full">
-        <ShoppingCartIcon className="w-6 h-6" />
+        { icon }
       </div>
     </div>
     <div className="flex flex-col gap-2">
@@ -50,9 +52,9 @@ export default function Dashboard () {
     <div className="flex w-full h-full bg-mediumLightGray">
       <div className="flex flex-col gap-6 w-full h-full p-6">
         <div className="flex gap-4">
-          <InfoCard title="Vendas" amount={0} rate={0} />
-          <InfoCard title="Remédios" amount={0} rate={0} />
-          <InfoCard title="Diversos" amount={0} rate={0} /> 
+          <InfoCard title="Vendas" amount={0} rate={0} icon={<ShoppingCartIcon className="w-6 h-6" />} />
+          <InfoCard title="Remédios" amount={0} rate={0} icon={<BeakerIcon className="w-6 h-6" />} />
+          <InfoCard title="Diversos" amount={0} rate={0} icon={<CubeIcon className="w-6 h-6" />} /> 
         </div>
         {/* <div className="w-full h-[320px] p-6 bg-veryDarkGray rounded-md">
            <span className="text-white">Relatório de Vendas</span>

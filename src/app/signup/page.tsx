@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "../ui/logo";
 import Link from "next/link";
+import { signup } from "@/lib/actions/account";
 
 export default function Signup () {
   return (
@@ -20,7 +21,7 @@ export default function Signup () {
         />
       </div>
       <div className="flex justify-center items-center bg-white w-full h-full p-12 z-10 shadow-2xl md:w-1/2">
-        <div className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]">
+        <form action={signup} className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]">
           <div>
             <h2 className="text-3xl mb-4">Crie sua conta</h2>
             <p>Preencha os campos requisitados abaixo</p>
@@ -29,17 +30,20 @@ export default function Signup () {
           <input
               placeholder="Seu nome completo"
               type="text"
-              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2"
+              name="name"
+              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2 border-none"
             />
             <input
               placeholder="Seu email"
               type="email"
-              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2"
+              name="email"
+              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2 border-none"
             />
             <input
               placeholder="Sua password"
               type="password"
-              className="w-full h-[50px] bg-lightestGray px-4 py-2"  
+              name="password"
+              className="w-full h-[50px] bg-lightestGray px-4 py-2 border-none"  
             />
           </div>
           <div className="flex flex-col gap-2 items-center">
@@ -64,7 +68,7 @@ export default function Signup () {
               Fazer login.
             </Link>
           </p>
-        </div>
+        </form>
       </div>
     </main>
   );
