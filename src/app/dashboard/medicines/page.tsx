@@ -1,4 +1,3 @@
-import { CustomDropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
@@ -17,7 +16,6 @@ export default function Medicines () {
               placeholder="Pesquise aqui"
             />
             <div className="flex justify-center items-center rounded-md bg-white">
-              <CustomDropdown />
             </div>
             <button
               className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
