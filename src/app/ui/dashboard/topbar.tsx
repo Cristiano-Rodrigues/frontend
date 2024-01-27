@@ -11,7 +11,7 @@ export function Topbar () {
         ></select>
       </div>
       <div className="flex items-center gap-2">
-        <button className="flex justify-center items-center w-8 h-8 bg-mediumLightGray rounded-sm">
+        <button className="flex justify-center items-center w-8 h-8 rounded-sm">
           <BellIcon className="w-5 h-5" />
         </button>
         <div className="relative">
