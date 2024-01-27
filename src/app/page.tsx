@@ -5,12 +5,12 @@ import Link from "next/link";
 export default function Login () {
   return (
     <main className="flex flex-col w-full relative overflow-hidden text-sm text-veryDarkGray md:h-screen md:flex-row">
-      <div className="w-full h-full p-12 md:w-1/2">
+      <div className="w-full h-full p-12 md:w-1/2 bg-lightestGray md:bg-white">
         <Logo
           className="mb-4"
         />
-        <h1 className="text-4xl mb-2">Gerir sua farmácia nunca foi tão fácil.</h1>
-        <h4 className="font-bold">Crie sua conta e experimente gratuitamente por 30 dias.</h4>
+        <h1 className="text-3xl mb-2 md:text-4xl">Gerir sua farmácia nunca foi tão fácil.</h1>
+        <h4 className="text-xs font-bold">Crie sua conta e experimente mais facilidade.</h4>
         <Image
           className="hidden absolute bottom-[-300px] left-0 md:block"
           width={1164}
@@ -22,7 +22,7 @@ export default function Login () {
       <div className="flex justify-center items-center bg-white w-full h-full p-12 z-10 shadow-2xl md:w-1/2">
         <form className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]">
           <div>
-            <h2 className="text-3xl mb-4">Faça Login</h2>
+            <h2 className="text-2xl mb-4 md:text-3xl">Faça Login</h2>
             <p>Preencha os campos requisitados abaixo</p>
           </div>
           <div className="flex flex-col">
@@ -39,7 +39,7 @@ export default function Login () {
               className="w-full h-[50px] bg-lightestGray px-4 py-2 border-none"  
             />
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-col gap-4 md:flex-row md:justify-between">
             <div className="flex items-center gap-1">
               <input type="checkbox" id="keep-logged-in" />
               <label

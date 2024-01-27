@@ -11,7 +11,7 @@ export default function Signup () {
           className="mb-4"
         />
         <h1 className="text-4xl mb-2">Gerir sua farmácia nunca foi tão fácil.</h1>
-        <h4 className="font-bold">Crie sua conta e experimente gratuitamente por 30 dias.</h4>
+        <h4 className="font-bold">Crie sua conta e experimente mais facilidade.</h4>
         <Image
           className="hidden absolute bottom-[-300px] left-0 md:block"
           width={1164}
