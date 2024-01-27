@@ -2,6 +2,7 @@ import Image from "next/image";
 import Logo from "../ui/logo";
 import Link from "next/link";
 import { signup } from "@/lib/actions/account";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Signup () {
   return (
@@ -56,7 +57,9 @@ export default function Signup () {
             <button
               className="w-full h-[50px] bg-gray-300 font-bold rounded"
             >
-              Inicie com o Google
+              <p className="flex justify-center items-center gap-2">
+                <FaGoogle /> Faça Login com o Google
+              </p>
             </button>
           </div>
           <p className="m-auto">

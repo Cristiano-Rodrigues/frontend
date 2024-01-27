@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "./ui/logo";
 import Link from "next/link";
+import { FaGoogle } from "react-icons/fa";
 
 export default function Login () {
   return (
@@ -66,7 +67,9 @@ export default function Login () {
             <button
               className="w-full h-[50px] bg-gray-300 font-bold rounded"
             >
-              Faça Login com o Google
+              <p className="flex justify-center items-center gap-2">
+                <FaGoogle /> Faça Login com o Google
+              </p>
             </button>
           </div>
           <p className="m-auto">
