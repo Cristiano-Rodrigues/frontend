@@ -21,7 +21,7 @@ export default function Login () {
         />
       </div>
       <div className="flex justify-center items-center bg-white w-full h-full p-12 z-10 shadow-2xl md:w-1/2">
-        <form className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]">
+        <form className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]" action={'/dashboard'}>
           <div>
             <h2 className="text-2xl mb-4 md:text-3xl">Faça Login</h2>
             <p>Preencha os campos requisitados abaixo</p>

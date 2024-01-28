@@ -1,5 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline"
 import clsx from "clsx"
+import { CustomCalendar } from "./calendar";
 
 const InfoCard = ({
   title,
@@ -53,6 +54,7 @@ export function RightSideBar () {
             }
           </div>
         </div>
+        {/* <CustomCalendar /> */}
       </div>
       <div className="flex flex-col gap-2">
         <h4 className="font-bold">Eventos <span className="ml-1 font-normal text-xs text-darkGray">Janeiro de 2024</span></h4>
