@@ -69,7 +69,7 @@ export default function Dashboard () {
           </div>
           <Link
             className="flex justify-center items-center w-full h-9 font-bold bg-primary-25 rounded-sm hover:bg-primary-100 hover:text-white duration-300"
-            href="/sales"
+            href="/dashboard/sales"
           >
             Ver mais
           </Link>
