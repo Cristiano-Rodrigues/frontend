@@ -45,7 +45,7 @@ export function UserProfileOptions () {
 export function Topbar () {
   return (
     <div className="flex justify-between w-full h-[80px] bg-white px-6 py-4">
-      <div className="flex items-center gap-2">
+      <div className="flex items-start md:items-center gap-2 flex-col md:flex-row">
         <label htmlFor="outlet">Escolha a farmácia</label>
         <select
           id="outlet"

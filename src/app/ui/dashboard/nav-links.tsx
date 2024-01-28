@@ -49,6 +49,7 @@ export function NavLinks () {
             >
               <Icon className="w-4 h-4"/>
               <Link
+                className="hidden md:block"
                 href={`/dashboard${href}`}
               >
                 { name }
@@ -71,6 +72,7 @@ export function NavLinks () {
             >
               <Icon className="w-4 h-4"/>
               <Link
+                className="hidden md:block"
                 href={`/dashboard${href}`}
               >
                 { name }

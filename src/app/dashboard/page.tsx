@@ -13,7 +13,7 @@ const InfoCard = ({
   rate: number;
   icon: React.ReactNode;
 }) => (
-  <div className="flex items-center w-1/3 h-[135px] p-6 gap-4 bg-white rounded-md">
+  <div className="flex items-center w-full md:w-1/3 h-[135px] p-6 gap-4 bg-white rounded-md">
     <div>
       <div className="flex justify-center items-center w-10 h-10 bg-primary-25 rounded-full">
         { icon }
@@ -49,9 +49,9 @@ const TableHead = () => {
 
 export default function Dashboard () {
   return (
-    <div className="flex w-full h-full bg-mediumLightGray">
+    <div className="flex flex-col md:flex-row gap-2 w-full md:h-full bg-mediumLightGray overflow-auto max-h-[calc(100vh-80px)]">
       <div className="flex flex-col gap-6 w-full h-full p-6">
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <InfoCard title="Vendas" amount={0} rate={0} icon={<ShoppingCartIcon className="w-6 h-6" />} />
           <InfoCard title="Remédios" amount={0} rate={0} icon={<BeakerIcon className="w-6 h-6" />} />
           <InfoCard title="Diversos" amount={0} rate={0} icon={<CubeIcon className="w-6 h-6" />} /> 
@@ -61,7 +61,7 @@ export default function Dashboard () {
         </div> */}
         <div className="flex flex-col gap-6 p-6 bg-white rounded-md">
           <h3 className="text-xl font-bold">Lista de Vendas</h3>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 overflow-x-auto">
             <TableHead />
             <div className="flex flex-col gap-2">
               <p className="text-center">Sem dados ainda</p>
