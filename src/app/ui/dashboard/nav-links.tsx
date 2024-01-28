@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const menuItems = [
-  { name: 'Home', href: '/', Icon: HomeIcon },
+  { name: 'Home', href: '', Icon: HomeIcon },
   { name: 'Remédios e diversos', href: '/medicines', Icon: BeakerIcon },
   { name: 'Vendas', href: '/sales', Icon: ShoppingBagIcon },
   { name: 'Fornecedores', href: '/suppliers', Icon: TruckIcon },
@@ -43,7 +43,7 @@ export function NavLinks () {
               className={clsx(
                 "flex gap-4 px-4 py-1 cursor-pointer rounded-full hover:bg-primary-25 duration-300",
                 {
-                  "bg-primary-25": pathname == href
+                  "bg-primary-25": pathname == `/dashboard${href}`
                 }
               )}
             >

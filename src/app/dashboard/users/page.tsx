@@ -8,7 +8,7 @@ export default function Medicines () {
       <div className="flex flex-col gap-4 w-full h-full p-6 bg-lightestGray">
         <div className="flex flex-col gap-2 justify-between w-full md:flex-row">
           <div className="flex items-center">
-            <h3 className="text-xl font-bold">Lista de Remédios</h3>
+            <h3 className="text-xl font-bold">Lista de usuários</h3>
           </div>
           <div className="flex gap-2">
             <input
@@ -22,14 +22,14 @@ export default function Medicines () {
             <button
               className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
             >
-              <p className="hidden md:block">Novo remédio</p>
+              <p className="hidden md:block">Novo usuário</p>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />
             </button>
           </div>
         </div>
         <CustomTable
           columns={
-            ['Nome', 'Designação', 'Tipo', 'Peso', 'Expiração' ]
+            ['Nome', 'Email', 'Função', 'Permissão', 'Endereço', 'Contacto' ]
           }
           data={[]}
         />

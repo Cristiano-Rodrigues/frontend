@@ -72,7 +72,7 @@ export default function Login () {
               </p>
             </button>
           </div>
-          <p className="m-auto">
+          {/* <p className="m-auto">
             Novo no Ez Pharma?{' '}
             <Link
               className="underline text-gray-400"
@@ -80,7 +80,7 @@ export default function Login () {
             >
               Criar conta.
             </Link>
-          </p>
+          </p> */}
         </form>
       </div>
     </main>

@@ -27,7 +27,7 @@ const TableHead = ({ columns }: { columns: string[]; }) => {
 
       {
         columns.map(column => (
-          <div key={column} className="flex justify-between items-center w-[100px] shrink-0">
+          <div key={column} className="flex justify-between items-center gap-2 min-w-[100px] shrink-0">
             <p>{ column }</p>
             <ArrowDownIcon  className="w-3 h-3" />
           </div>
@@ -59,7 +59,7 @@ const TableRow = ({ row }: { row: any; }) => {
 
       {
         keys.map(key => (
-          <div key={key} className="w-[100px] shrink-0">
+          <div key={key} className="min-w-[100px] shrink-0">
             <p>{ row[key] }</p>
           </div>
         ))
