@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 import bcrypt from 'bcrypt'
 
 async function getByEmail (email: string) {
-  const result = await sql`SELECT * FROM users WHERE email=${email}` // add permission
+  const result = await sql`SELECT * FROM users WHERE email=${email}`
   return result.rows[0]
 }
 
@@ -23,7 +23,7 @@ export async function signIn (user: {
     throw new AuthError('password')
   }
 
-  const { password: _, ...filteredUser } = user
-
+  const { password: _, ...filteredUser } = registedUser
+  
   return filteredUser
 }

@@ -1,4 +1,3 @@
-import { BellIcon } from "@heroicons/react/24/outline";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -39,25 +38,5 @@ export function UserProfileOptions () {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
-
-export function Topbar () {
-  return (
-    <div className="flex justify-between w-full h-[80px] bg-white px-6 py-4">
-      <div className="flex items-start md:items-center gap-2 flex-col md:flex-row">
-        <label htmlFor="outlet">Escolha a farmácia</label>
-        <select
-          id="outlet"
-          className="border-none min-w-72 h-[35px] bg-lightestGray"
-        ></select>
-      </div>
-      <div className="flex items-center gap-2">
-        <button className="flex justify-center items-center w-8 h-8 rounded-sm">
-          <BellIcon className="w-5 h-5" />
-        </button>
-        <UserProfileOptions />
-      </div>
-    </div>
   )
 }

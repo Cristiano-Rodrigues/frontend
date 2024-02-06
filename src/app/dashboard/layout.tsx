@@ -1,5 +1,5 @@
 import { Sidebar } from "../ui/dashboard/sidebar";
-import { Topbar } from "../ui/dashboard/topbar";
+import { Topbar } from "../ui/dashboard/topbar/topbar";
 
 export default function DashboardLayout ({
   children,
