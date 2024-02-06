@@ -2,7 +2,7 @@ import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
-export default function Medicines () {
+export default function Outlets () {
   return (
     <div className="relative flex w-full h-full">
       <div className="flex flex-col gap-4 w-full h-full p-6 bg-lightestGray">

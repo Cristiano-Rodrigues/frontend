@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 import {
-  Outlet, Product, Sale,
+  Outlet, Product, Sale, User,
 } from '../definitions';
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -58,5 +58,20 @@ export async function fetchSales () {
   } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch sale data.')
+  }
+}
+
+export async function fetchUsers () {
+  noStore()
+
+  try {
+    const data = await sql<User>`
+      select id, name, email, contact, role, permission from users;
+    `
+
+    return data.rows
+  } catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch user data.')
   }
 }

@@ -30,3 +30,12 @@ export type Sale = {
   customer: string;
   saler: string;
 }
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  contact: string;
+  role: string;
+  permission: 'admin' | 'manager' | 'standard'
+}

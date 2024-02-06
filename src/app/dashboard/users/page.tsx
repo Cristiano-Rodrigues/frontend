@@ -1,8 +1,15 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { fetchUsers } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
-export default function Medicines () {
+export default async function Users () {
+  const users = (await fetchUsers()).map(p => ({
+    ...p,
+    name: p.name.slice(0, 8) + '...',
+    email: p.email.slice(0, 8) + '...',
+  }))
+
   return (
     <div className="relative flex w-full h-full">
       <div className="flex flex-col gap-4 w-full h-full p-6 bg-lightestGray">
@@ -29,9 +36,9 @@ export default function Medicines () {
         </div>
         <CustomTable
           columns={
-            ['Nome', 'Email', 'Função', 'Permissão', 'Endereço', 'Contacto' ]
+            ['Nome', 'Email', 'Contacto', 'Função', 'Permissão' ]
           }
-          data={[]}
+          data={users}
         />
       </div>
       <div className="absolute  w-[355px] bg-mediumLightGray"></div>

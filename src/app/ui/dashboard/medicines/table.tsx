@@ -60,7 +60,9 @@ const TableRow = ({ row }: { row: any; }) => {
       {
         keys.map(key => (
           <div key={key} className="min-w-[100px] shrink-0">
-            <p>{ row[key] }</p>
+            <p>{
+              !!row[key] ? row[key] : 'N/A'  
+            }</p>
           </div>
         ))
       }

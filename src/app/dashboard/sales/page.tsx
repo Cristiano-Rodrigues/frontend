@@ -3,7 +3,7 @@ import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { fetchSales } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
-export default async function Medicines () {
+export default async function Sales () {
   const sales = (await fetchSales()).map(p => ({
     ...p,
     date: p.date.toLocaleDateString()
