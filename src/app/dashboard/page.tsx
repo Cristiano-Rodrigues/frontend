@@ -49,7 +49,7 @@ const TableHead = () => {
 
 export default function Dashboard () {
   return (
-    <div className="flex flex-col md:flex-row gap-2 w-full md:h-full bg-mediumLightGray overflow-auto max-h-[calc(100vh-80px)]">
+    <div className="flex flex-col md:flex-row gap-y-2 w-full md:h-full bg-mediumLightGray overflow-auto max-h-[calc(100vh-80px)]">
       <div className="flex flex-col gap-6 w-full h-full p-6">
         <div className="flex flex-col md:flex-row gap-4">
           <InfoCard title="Vendas" amount={0} rate={0} icon={<ShoppingCartIcon className="w-6 h-6" />} />
@@ -69,7 +69,7 @@ export default function Dashboard () {
           </div>
           <Link
             className="flex justify-center items-center w-full h-9 font-bold bg-primary-25 rounded-sm hover:bg-primary-100 hover:text-white duration-300"
-            href="/sales"
+            href="/dashboard/sales"
           >
             Ver mais
           </Link>
