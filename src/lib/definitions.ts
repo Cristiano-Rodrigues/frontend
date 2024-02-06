@@ -20,3 +20,13 @@ export type Product = {
   expiration: Date;
   outlet_id: string;
 }
+
+export type Sale = {
+  id: string;
+  date: Date;
+  paidValue: number;
+  cost: number;
+  paymentType: string;
+  customer: string;
+  saler: string;
+}
