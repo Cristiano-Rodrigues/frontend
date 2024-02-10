@@ -1,6 +1,7 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Suppliers () {
   return (
@@ -22,7 +23,12 @@ export default function Suppliers () {
             <button
               className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
             >
-              <p className="hidden md:block">Novo fornecedor</p>
+              <Link
+                href='/dashboard/suppliers/create'
+                className="hidden md:block"
+              >
+                Novo fornecedor
+              </Link>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />
             </button>
           </div>
