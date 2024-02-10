@@ -1,5 +1,5 @@
 import { BeakerIcon, CubeIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-import { RightSideBar } from "../ui/dashboard/right-side-bar";
+import { RightSideBar } from "../ui/dashboard/right-side-bar/right-side-bar";
 import Link from "next/link";
 
 const InfoCard = ({
