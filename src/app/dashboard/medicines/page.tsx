@@ -2,6 +2,7 @@ import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { fetchProducts } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default async function Medicines () {
   const products = (await fetchProducts()).map(({ outlet_id, ...p }) => ({
@@ -28,7 +29,12 @@ export default async function Medicines () {
             <button
               className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
             >
-              <p className="hidden md:block">Novo remédio</p>
+              <Link
+                href='/dashboard/medicines/create'
+                className="hidden md:block"
+              >
+                Novo remédio
+              </Link>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />
             </button>
           </div>
