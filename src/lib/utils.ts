@@ -11,3 +11,7 @@ export function formatDate (date: Date, format: string) {
   moment.locale('pt')
   return moment(date).format(format)
 }
+
+export function formatNumber (number: number) {
+  return String(number).replace('.', ',')
+}
