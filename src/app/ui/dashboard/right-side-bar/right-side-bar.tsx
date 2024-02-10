@@ -29,13 +29,13 @@ export function RightSideBar () {
       </div>
       <div className="flex flex-col gap-2">
         <h4 className="font-bold">Hoje <span className="ml-1 font-normal text-xs text-darkGray">{
-          formatDate(date, 'DD de MMMM de YYYY')
+          formatDate(date, 'D [de] MMMM [de] YYYY')
         }</span></h4>
         <Calendar />
       </div>
       <div className="flex flex-col gap-2">
         <h4 className="font-bold">Eventos <span className="ml-1 font-normal text-xs text-darkGray">{
-          formatDate(date, 'MMMM de YYYY')
+          formatDate(date, 'MMMM [de] YYYY')
         }</span></h4>
       </div>
     </div>

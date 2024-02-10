@@ -12,7 +12,7 @@ export function Calendar () {
   return (
     <div className="flex flex-col gap-2 p-4 bg-white rounded-sm">
       <div className="flex justify-between mb-2">
-        <p>{ formatDate(currentDate, 'MMMM de YYYY') }</p>
+        <p>{ formatDate(currentDate, 'MMMM [de] YYYY') }</p>
         <div className="flex gap-2">
           <ArrowLeftIcon
             className="w-4 cursor-pointer select-none"
