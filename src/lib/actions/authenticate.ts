@@ -4,7 +4,8 @@ import { z } from 'zod'
 import { signIn } from '../../../auth';
 import { AuthError } from '../definitions';
 import { redirect } from 'next/navigation';
-import { cookies } from 'next/headers'
+import { fetchOutlets } from '../data/fetch';
+import { setCurrentOutlet, setCurrentUser } from './cookies';
 
 type State = {
   errors?: {
@@ -40,13 +41,10 @@ export async function authenticate (prevState: State, formData: FormData) {
   try {
     const authUser = await signIn(user)
 
-    const encryptedSessionData = JSON.stringify(authUser)
-    cookies().set('user', encryptedSessionData, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 7 * 24 * 60 * 60,
-      path: '/',
-    })
+    await setCurrentUser(authUser)
+
+    const [ firstAllowedOutlet ] = await fetchOutlets(authUser.id);
+    await setCurrentOutlet(firstAllowedOutlet.id)
 
     redirect('/dashboard')
   } catch (error) {

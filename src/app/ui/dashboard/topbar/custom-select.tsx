@@ -7,11 +7,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { setCurrentOutlet } from "@/lib/actions/cookies"
 import { Outlet } from "@/lib/definitions"
 
-export function CustomSelect ({ outlets }: { outlets: Outlet[] }) {
+export function CustomSelect ({
+  selected,
+  outlets
+}: {
+  selected: string;
+  outlets: Outlet[]
+}) {
   return (
-    <Select defaultValue={outlets[0].id}>
+    <Select
+      defaultValue={selected}
+      onValueChange={setCurrentOutlet}
+    >
       <SelectTrigger className="min-w-[280px] w-min">
         <SelectValue placeholder="Selecione uma farmácia" />
       </SelectTrigger>
