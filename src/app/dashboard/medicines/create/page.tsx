@@ -28,23 +28,51 @@ export default async function CreateMedicine () {
         <form className="flex flex-col gap-y-6 items-end">
           <div className="flex w-full gap-x-6">
             <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="email">
-                Email <span className="text-primary-100">*</span>
+              <label htmlFor="name">
+                Nome <span className="text-primary-100">*</span>
               </label>
-              <input type="email" id="email" placeholder="Email" className="p-3 bg-lightestGray rounded" />
+              <input type="text" id="name" placeholder="Nome" className="p-3 bg-lightestGray rounded" />
             </div>
             <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="password">
-                Password <span className="text-primary-100">*</span>
+              <label htmlFor="type">
+                Tipo <span className="text-primary-100">*</span>
               </label>
-              <input type="password" id="password" placeholder="password" className="p-3 bg-lightestGray rounded" />
+              <input type="text" id="type" placeholder="Tipo" className="p-3 bg-lightestGray rounded" />
+            </div>
+          </div>
+          <div className="flex w-full gap-x-6">
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="origin">
+                Origem <span className="text-primary-100">*</span>
+              </label>
+              <input type="text" id="origin" placeholder="Origem" className="p-3 bg-lightestGray rounded" />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="designation">
+                Designação
+              </label>
+              <input type="text" id="designation" placeholder="Designação" className="p-3 bg-lightestGray rounded" />
+            </div>
+          </div>
+          <div className="flex w-full gap-x-6">
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="weight">
+                Peso (mg)
+              </label>
+              <input type="number" min={0} id="weight" placeholder="Peso em miligramas" className="p-3 bg-lightestGray rounded" />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="expiration">
+                Expiração
+              </label>
+              <input type="date" id="expiration" placeholder="Expiração" className="p-3 bg-lightestGray rounded" />
             </div>
           </div>
           <div className="flex flex-col gap-1 w-full">
-            <label htmlFor="email">
-              Email <span className="text-primary-100">*</span>
+            <label htmlFor="price">
+              Preço <span className="text-primary-100">*</span>
             </label>
-            <input type="email" id="email" placeholder="Email" className="p-3 bg-lightestGray rounded" />
+            <input type="number" min={0} id="price" placeholder="Preço" className="p-3 bg-lightestGray rounded" />
           </div>
           <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar remédio</button>
         </form>
