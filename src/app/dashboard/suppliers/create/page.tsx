@@ -51,7 +51,7 @@ export default async function CreateSupplier () {
           <CustomSwitch label='Disponível' />
             
           </div>
-          <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar remédio</button>
+          <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar</button>
         </form>
       </div>
     </div>

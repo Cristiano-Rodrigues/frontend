@@ -29,7 +29,7 @@ export default async function Medicines () {
               <Dropdown />
             </div>
             <button
-              className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
+              className="flex justify-between items-center gap-2 p-2 bg-primary-100 text-white rounded-md"
             >
               <Link
                 href='/dashboard/medicines/create'

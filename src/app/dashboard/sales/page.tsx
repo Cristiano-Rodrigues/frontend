@@ -28,7 +28,7 @@ export default async function Sales () {
               <Dropdown />
             </div>
             <button
-              className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
+              className="flex justify-between items-center gap-2 p-2 bg-primary-100 text-white rounded-md"
             >
               <p className="hidden md:block">Nova venda</p>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />

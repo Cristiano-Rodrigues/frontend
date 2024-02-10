@@ -72,7 +72,7 @@ export default async function CreateUser () {
               <input type="text" id="address" placeholder="Endereço" className="p-3 bg-lightestGray rounded" />
             </div>
           </div>
-          <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar remédio</button>
+          <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar</button>
         </form>
       </div>
     </div>
