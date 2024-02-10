@@ -4,6 +4,7 @@ import Link from "next/link";
 import { fetchInfoCardData, fetchLastSales } from "@/lib/data/fetch";
 import { formatDate, formatNumber } from "@/lib/utils";
 import clsx from "clsx";
+import { getCurrentOutlet } from "@/lib/actions/cookies";
 
 const InfoCard = ({
   title,
@@ -72,12 +73,13 @@ const TableHead = () => {
 }
 
 export default async function Dashboard () {
-  const saleItens = await fetchLastSales()
+  const outletId = await getCurrentOutlet()
+  const saleItens = await fetchLastSales(outletId)
   const {
     saleCostAvg,
     totalSales,
     productPriceAvg
-  } = await fetchInfoCardData()
+  } = await fetchInfoCardData(outletId)
 
   return (
     <div className="flex flex-col md:flex-row gap-y-2 w-full md:h-full bg-mediumLightGray overflow-auto max-h-[calc(100vh-80px)]">
@@ -90,7 +92,7 @@ export default async function Dashboard () {
           />
           <InfoCard
             title="Preço médio de venda" amount={saleCostAvg} rate={0}
-            icon={<BeakerIcon className="w-6 h-6" />}
+            icon={<ChartBarIcon className="w-6 h-6" />}
           />
           <InfoCard
             title="Preço médio de produtos" amount={productPriceAvg} rate={0}

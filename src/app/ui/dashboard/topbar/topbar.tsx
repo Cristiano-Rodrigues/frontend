@@ -9,7 +9,7 @@ import { getCurrentOutlet, getCurrentUser } from "@/lib/actions/cookies";
 export async function Topbar () {
   const { id: userId } = await getCurrentUser();
   const outlets = await fetchOutlets(userId);
-  const currentOutlet = await getCurrentOutlet() || '';
+  const currentOutlet = await getCurrentOutlet();
 
   return (
     <div className="flex justify-between w-full h-[80px] bg-white px-6 py-4">

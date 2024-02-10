@@ -1,10 +1,12 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { getCurrentOutlet } from "@/lib/actions/cookies";
 import { fetchUsers } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
 export default async function Users () {
-  const users = (await fetchUsers()).map(p => ({
+  const outletId = await getCurrentOutlet()
+  const users = (await fetchUsers(outletId)).map(p => ({
     ...p,
     name: p.name.slice(0, 8) + '...',
     email: p.email.slice(0, 8) + '...',

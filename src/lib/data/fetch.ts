@@ -24,12 +24,12 @@ export async function fetchOutlets (userId: number) {
   }
 }
 
-export async function fetchProducts () {
+export async function fetchProducts (outletId: string) {
   noStore()
 
   try {
     const data = await sql<Product>`
-      SELECT * FROM products;
+      SELECT * FROM products WHERE outlet_id=${outletId};
     `
 
     return data.rows
@@ -39,7 +39,7 @@ export async function fetchProducts () {
   }
 }
 
-export async function fetchSales () {
+export async function fetchSales (outletId: string) {
   noStore()
 
   try {
@@ -51,7 +51,8 @@ export async function fetchSales () {
       join customers as c
       on s.customer_id = c.id
       join users as u
-      on s.user_id = u.id;
+      on s.user_id = u.id
+      where s.outlet_id=${outletId};
     `
 
     return data.rows
@@ -61,12 +62,16 @@ export async function fetchSales () {
   }
 }
 
-export async function fetchUsers () {
+export async function fetchUsers (outletId: string) {
   noStore()
 
   try {
     const data = await sql<User>`
-      select id, name, email, contact, role, permission from users;
+      select
+        u.id, u.name, u.email, u.contact, u.role, u.permission
+      from outlet_n_users onu
+      join users u on onu.user_id = u.id
+      where onu.outlet_id=${outletId}
     `
 
     return data.rows
@@ -76,7 +81,7 @@ export async function fetchUsers () {
   }
 }
 
-export async function fetchLastSales () {
+export async function fetchLastSales (outletId: string) {
   noStore()
 
   try {
@@ -92,6 +97,7 @@ export async function fetchLastSales () {
       join sales s on s.id = snp.sale_id
       join users u on u.id = s.user_id
       join products p on p.id = snp.product_id
+      where s.outlet_id=${outletId}
       order by date desc limit 5;
     `
 
@@ -102,7 +108,7 @@ export async function fetchLastSales () {
   }
 }
 
-export async function fetchInfoCardData () {
+export async function fetchInfoCardData (outletId: string) {
   noStore()
 
   try {
@@ -110,24 +116,32 @@ export async function fetchInfoCardData () {
       count: number;
     }>`
       select count(*)
-      from sales
+      from sales s
       where
         extract(month from now()) - 1 = extract(month from date) and
-        extract(year from now()) = extract(year from date)
+        extract(year from now()) = extract(year from date) and
+        s.outlet_id=${outletId}
       union all
       select count(*)
-      from sales
+      from sales s
       where
         extract(month from now()) = extract(month from date) and
-        extract(year from now()) = extract(year from date)
+        extract(year from now()) = extract(year from date) and
+        s.outlet_id=${outletId}
     `
 
     type Round = {
       round: number;
     }
 
-    const saleCostAvg = await sql<Round>`select round(avg(sale_cost), 2) from sales;`
-    const productPriceAvg = await sql<Round>`select round(avg(price), 2) from products;`
+    const saleCostAvg = await sql<Round>`
+      select round(avg(sale_cost), 2) from sales s
+      where s.outlet_id=${outletId};
+    `
+    const productPriceAvg = await sql<Round>`
+      select round(avg(price), 2) from products p
+      where p.outlet_id=${outletId};
+    `
 
     const lastMonthSalesCount = totalSales.rows[0].count
     const currentMonthSalesCount = totalSales.rows[1].count
@@ -140,8 +154,8 @@ export async function fetchInfoCardData () {
         amount: currentMonthSalesCount,
         rate: saleRate
       },
-      saleCostAvg: saleCostAvg.rows[0].round,
-      productPriceAvg: productPriceAvg.rows[0].round
+      saleCostAvg: saleCostAvg.rows[0].round ?? 0,
+      productPriceAvg: productPriceAvg.rows[0].round ?? 0
     }
   } catch (error) {
     console.error('Database Error:', error)
@@ -149,7 +163,7 @@ export async function fetchInfoCardData () {
   }
 }
 
-export async function fetchSaleResults () {
+export async function fetchSaleResults (outletId: string) {
   noStore()
 
   type Sum = {
@@ -158,15 +172,21 @@ export async function fetchSaleResults () {
 
   try {
     const lastWeekSalesSum = await sql<Sum>`
-      select sum(sale_cost) from sales where extract(day from now() - date) < 7;
+      select sum(sale_cost) from sales
+      where
+        extract(day from now() - date) < 7 and
+        outlet_id=${outletId};
     `
     const lastMonthSalesSum = await sql<Sum>`
-      select sum(sale_cost) from sales where extract(day from now() - date) < 7;
+      select sum(sale_cost) from sales
+      where
+        extract(day from now() - date) < 7 and
+        outlet_id=${outletId};
     `
 
     return {
-      lastWeekSalesSum: lastWeekSalesSum.rows[0].sum,
-      lastMonthSalesSum: lastMonthSalesSum.rows[0].sum
+      lastWeekSalesSum: lastWeekSalesSum.rows[0].sum ?? 0,
+      lastMonthSalesSum: lastMonthSalesSum.rows[0].sum ?? 0
     }
   } catch (error) {
     console.error('Database Error:', error)

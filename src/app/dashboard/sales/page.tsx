@@ -1,10 +1,12 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { getCurrentOutlet } from "@/lib/actions/cookies";
 import { fetchSales } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
 export default async function Sales () {
-  const sales = (await fetchSales()).map(p => ({
+  const outletId = await getCurrentOutlet()
+  const sales = (await fetchSales(outletId)).map(p => ({
     ...p,
     date: p.date.toLocaleDateString()
   }))

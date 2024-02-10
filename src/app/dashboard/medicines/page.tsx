@@ -1,11 +1,13 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { getCurrentOutlet } from "@/lib/actions/cookies";
 import { fetchProducts } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 export default async function Medicines () {
-  const products = (await fetchProducts()).map(({ outlet_id, ...p }) => ({
+  const outletId = await getCurrentOutlet()
+  const products = (await fetchProducts(outletId)).map(({ outlet_id, ...p }) => ({
     ...p,
     expiration: p?.expiration?.toLocaleDateString()
   }))

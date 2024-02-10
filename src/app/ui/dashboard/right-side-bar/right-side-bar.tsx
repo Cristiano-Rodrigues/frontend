@@ -1,6 +1,7 @@
 import { formatDate, formatNumber } from "@/lib/utils";
 import { Calendar } from "./calendar";
 import { fetchSaleResults } from "@/lib/data/fetch";
+import { getCurrentOutlet } from "@/lib/actions/cookies";
 
 const InfoCard = ({
   title,
@@ -12,17 +13,18 @@ const InfoCard = ({
   return (
     <div className="flex flex-col justify-between gap-6 w-1/2 px-4 py-6 bg-white rounded-md">
       <p className="text-xs text-darkGray">{ title }</p>
-      <p className="text-2xl text-primary-100">{ formatNumber(amount) }<span>Kz</span></p>
+      <p className="text-2xl text-primary-100">{ formatNumber(amount) }<span> Kz</span></p>
     </div>
   )
 }
 
 export async function RightSideBar () {
   const date = new Date()
+  const outletId = await getCurrentOutlet()
   const {
     lastMonthSalesSum,
     lastWeekSalesSum
-  } = await fetchSaleResults()
+  } = await fetchSaleResults(outletId)
 
 
   return (

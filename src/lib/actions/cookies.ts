@@ -27,5 +27,5 @@ export async function setCurrentOutlet (outletId: string) {
 }
 
 export async function getCurrentOutlet () {
-  return cookies().get('outlet')?.value
+  return cookies().get('outlet')?.value || ''
 }
