@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 import {
-  Outlet, Product, Sale, User,
+  Outlet, Product, Sale, SaleIten, User,
 } from '../definitions';
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -73,5 +73,31 @@ export async function fetchUsers () {
   } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch user data.')
+  }
+}
+
+export async function fetchLastSales () {
+  noStore()
+
+  try {
+    const data = await sql<SaleIten>`
+      select
+        u.name saler,
+        p.name iten,
+        p.origin,
+        s.date,
+        p.price,
+        snp.amount
+      from sales_n_products snp
+      join sales s on s.id = snp.sale_id
+      join users u on u.id = s.user_id
+      join products p on p.id = snp.product_id
+      order by date desc limit 5;
+    `
+
+    return data.rows
+  } catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch sale data.')
   }
 }

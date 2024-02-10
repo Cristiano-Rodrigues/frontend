@@ -32,6 +32,15 @@ export type Sale = {
   saler: string;
 }
 
+export type SaleIten = {
+  saler: string;
+  iten: string;
+  origin: string;
+  date: Date;
+  price: number | string;
+  amount: number
+}
+
 export type User = {
   id: string;
   name: string;
