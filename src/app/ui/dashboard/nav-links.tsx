@@ -41,7 +41,7 @@ export function NavLinks () {
             <li key={name}>
               <Link
                 className={clsx(
-                  "flex gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
+                  "flex items-center gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
                   {
                     "bg-primary-25": pathname == `/dashboard${href}`
                   }
@@ -61,7 +61,7 @@ export function NavLinks () {
             <li key={name}>
               <Link
                 className={clsx(
-                  "flex gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
+                  "flex items-center gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
                   {
                     "bg-primary-25": pathname == href
                   }
