@@ -144,6 +144,7 @@ async function seedProducts (client) {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name varchar(255) not null,
         designation varchar(255),
+        price decimal(14,2) not null,
         type varchar(255),
         origin varchar(255),
         weight decimal(5,2),

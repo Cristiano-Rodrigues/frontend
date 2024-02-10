@@ -41,7 +41,7 @@ export default async function Medicines () {
         </div>
         <CustomTable
           columns={
-            ['Nome', 'Designação', 'Tipo', 'Origem', 'Peso', 'Expiração' ]
+            ['Nome', 'Designação', 'Tipo', 'Origem', 'Peso', 'Expiração', 'Preço' ]
           }
           data={products}
         />

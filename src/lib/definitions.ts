@@ -14,6 +14,7 @@ export type Product = {
   id: string;
   name: string;
   designation: string;
+  price: string | number;
   type: string;
   origin: string;
   weight: string | number;
