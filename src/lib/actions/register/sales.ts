@@ -10,7 +10,7 @@ export type State = {
   errors?: {
     customerName?: string[],
     paidValue?: string[];
-    paymentType: string[];
+    paymentType?: string[];
   };
   message?: string;
 }
@@ -83,6 +83,10 @@ export async function registerSale (items: Item[], prevState: State, formData: F
     )
   } catch (error) {
     console.log(error)
+    return {
+      success: false,
+      message: 'Occorreu um erro ao cadastrar a venda'
+    }
   }
 
   return {

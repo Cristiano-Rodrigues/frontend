@@ -11,6 +11,7 @@ export default function Logo (props: any) {
         height={50}
         src="/img/logo.png"
         alt="Ez Pharma"
+        { ...props }
       />
     </Link>
   )

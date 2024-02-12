@@ -83,7 +83,7 @@ export default async function Dashboard () {
 
   return (
     <div className="flex flex-col md:flex-row gap-y-2 w-full md:h-full bg-mediumLightGray overflow-auto max-h-[calc(100vh-80px)]">
-      <div className="flex flex-col gap-6 w-full h-full p-6">
+      <div className="flex flex-col gap-6 w-full h-full p-6 overflow-y-auto">
         <div className="flex flex-col md:flex-row gap-4">
           <InfoCard
             title="Itens vendidos" amount={totalSales.amount} rate={totalSales.rate}
