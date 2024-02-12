@@ -45,7 +45,7 @@ export default async function CreateSupplier () {
             <label htmlFor="contact">
               Contacto
             </label>
-            <input type="text" min={0} id="contact" placeholder="Contacto" className="p-3 bg-lightestGray rounded" />
+            <input type="text" id="contact" placeholder="Contacto" className="p-3 bg-lightestGray rounded" />
           </div>
           <div className="flex flex-col gap-1 w-full">
           <CustomSwitch label='Disponível' />

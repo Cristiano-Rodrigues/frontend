@@ -3,6 +3,7 @@ import { CustomTable } from "@/app/ui/dashboard/medicines/table";
 import { getCurrentOutlet } from "@/lib/actions/cookies";
 import { fetchSales } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default async function Sales () {
   const outletId = await getCurrentOutlet()
@@ -30,7 +31,12 @@ export default async function Sales () {
             <button
               className="flex justify-between items-center gap-2 p-2 bg-primary-100 text-white rounded-md"
             >
-              <p className="hidden md:block">Nova venda</p>
+              <Link
+                href='/dashboard/sales/create'
+                className="hidden md:block"
+              >
+                Cadastrar venda
+              </Link>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />
             </button>
           </div>

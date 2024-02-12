@@ -72,7 +72,7 @@ export default async function CreateMedicine () {
             <label htmlFor="price">
               Preço <span className="text-primary-100">*</span>
             </label>
-            <input type="number" min={0} id="price" placeholder="Preço" className="p-3 bg-lightestGray rounded" />
+            <input type="number" min={0} step={0.1} id="price" placeholder="Preço" className="p-3 bg-lightestGray rounded" />
           </div>
           <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar</button>
         </form>
