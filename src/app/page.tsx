@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Logo from "./ui/logo";
-import Link from "next/link";
-import { FaGoogle } from "react-icons/fa";
+import { LoginForm } from "./ui/login-form";
 
 export default function Login () {
   return (
@@ -21,67 +20,7 @@ export default function Login () {
         />
       </div>
       <div className="flex justify-center items-center bg-white w-full h-full p-12 z-10 shadow-2xl md:w-1/2">
-        <form className="flex flex-col gap-6 w-full pb-12 sm:w-[500px]" action={'/dashboard'}>
-          <div>
-            <h2 className="text-2xl mb-4 md:text-3xl">Faça Login</h2>
-            <p>Preencha os campos requisitados abaixo</p>
-          </div>
-          <div className="flex flex-col">
-            <input
-              placeholder="Seu email"
-              type="email"
-              name="email"
-              className="w-full h-[50px] bg-lightestGray px-4 py-2 mb-2 border-none"
-            />
-            <input
-              placeholder="Sua password"
-              type="password"
-              name="password"
-              className="w-full h-[50px] bg-lightestGray px-4 py-2 border-none"  
-            />
-          </div>
-          <div className="flex flex-col gap-4 md:flex-row md:justify-between">
-            <div className="flex items-center gap-1">
-              <input type="checkbox" id="keep-logged-in" />
-              <label
-                className="cursor-pointer select-none"
-                htmlFor="keep-logged-in"
-              >
-                Mantenha-me logado
-              </label>
-            </div>
-            <Link
-              className="underline text-gray-400"
-              href="/help"
-            >
-              Esqueceu sua senha?
-            </Link>
-          </div>
-          <div className="flex flex-col gap-2 items-center">
-            <button
-              className="w-full h-[50px] bg-primary-100 text-white rounded"
-            >
-              Login
-            </button>
-            <span className="font-bold">Ou</span>
-            <button
-              className="w-full h-[50px] bg-gray-300 font-bold rounded"
-            >
-              <p className="flex justify-center items-center gap-2">
-                <FaGoogle /> Faça Login com o Google
-              </p>
-            </button>
-          </div>
-          {/* <p className="m-auto">
-            Novo no Ez Pharma?{' '}
-            <Link
-              className="underline text-gray-400"
-              href="/signup"
-            >
-              Criar conta.
-            </Link>
-          </p> */}
-        </form>
+        <LoginForm />
       </div>
     </main>
   );

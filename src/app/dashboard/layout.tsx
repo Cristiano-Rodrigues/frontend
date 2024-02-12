@@ -1,5 +1,5 @@
 import { Sidebar } from "../ui/dashboard/sidebar";
-import { Topbar } from "../ui/dashboard/topbar";
+import { Topbar } from "../ui/dashboard/topbar/topbar";
 
 export default function DashboardLayout ({
   children,
@@ -7,7 +7,7 @@ export default function DashboardLayout ({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="container flex h-screen text-sm text-veryDarkGray">
+    <main className="flex w-full h-screen text-sm text-veryDarkGray">
       <Sidebar />
       <div className="w-full">
         <Topbar />

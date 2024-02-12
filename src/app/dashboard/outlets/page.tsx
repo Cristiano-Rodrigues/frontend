@@ -1,8 +1,16 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { fetchOutlets } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
+import { cookies } from "next/headers";
+import Link from "next/link";
 
-export default function Medicines () {
+export default async function Outlets () {
+  const userString = cookies().get('user')?.value
+  const user = userString ? JSON.parse(userString) : null
+  const outlets = await fetchOutlets(user.id);
+
+
   return (
     <div className="relative flex w-full h-full">
       <div className="flex flex-col gap-4 w-full h-full p-6 bg-lightestGray">
@@ -20,9 +28,14 @@ export default function Medicines () {
               <Dropdown />
             </div>
             <button
-              className="flex justify-between items-center gap-2 p-2 bg-primary-25 rounded-md"
+              className="flex justify-between items-center gap-2 p-2 bg-primary-100 text-white rounded-md"
             >
-              <p className="hidden md:block">Novo ponto de venda</p>
+              <Link
+                href='/dashboard/outlets/create'
+                className="hidden md:block"
+              >
+                Novo ponto de venda
+              </Link>
               <PlusIcon className="w-5 h-5 md:w-4 md:h-4" />
             </button>
           </div>
@@ -31,7 +44,7 @@ export default function Medicines () {
           columns={
             ['Nome', 'Localização' ]
           }
-          data={[]}
+          data={outlets}
         />
       </div>
       <div className="absolute  w-[355px] bg-mediumLightGray"></div>

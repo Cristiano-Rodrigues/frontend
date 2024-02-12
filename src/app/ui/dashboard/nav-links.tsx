@@ -38,20 +38,17 @@ export function NavLinks () {
       <ul className="flex flex-col gap-2">
         {
           menuItems.map(({ name, href, Icon }) => (
-            <li
-              key={name}
-              className={clsx(
-                "flex gap-4 px-4 py-1 cursor-pointer rounded-full hover:bg-primary-25 duration-300",
-                {
-                  "bg-primary-25": pathname == `/dashboard${href}`
-                }
-              )}
-            >
-              <Icon className="w-4 h-4"/>
+            <li key={name}>
               <Link
-                className="hidden md:block"
+                className={clsx(
+                  "flex items-center gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
+                  {
+                    "bg-primary-25": pathname == `/dashboard${href}`
+                  }
+                )}
                 href={`/dashboard${href}`}
               >
+                <Icon className="w-4 h-4"/>
                 { name }
               </Link>
             </li>
@@ -61,20 +58,17 @@ export function NavLinks () {
       <ul className="flex flex-col gap-2">
         {
           moreOptions.map(({ name, href, Icon }) => (
-            <li
-              key={name}
-              className={clsx(
-                "flex gap-4 px-4 py-1 cursor-pointer rounded-full hover:bg-primary-25 duration-300",
-                {
-                  "bg-primary-25": pathname == href
-                }
-              )}
-            >
-              <Icon className="w-4 h-4"/>
+            <li key={name}>
               <Link
-                className="hidden md:block"
+                className={clsx(
+                  "flex items-center gap-4 px-4 py-1 rounded-full hover:bg-primary-25 duration-300",
+                  {
+                    "bg-primary-25": pathname == href
+                  }
+                )}
                 href={`/dashboard${href}`}
               >
+                <Icon className="w-4 h-4"/>
                 { name }
               </Link>
             </li>
