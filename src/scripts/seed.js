@@ -189,13 +189,12 @@ async function seedSales (client) {
       create table if not exists sales (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         date date not null default (now()),
+        payer varchar(255) not null,
         paid_value decimal(14,2) not null,
         sale_cost decimal(14,2) null,
         payment_type varchar(255),
-        customer_id uuid,
         user_id uuid not null,
         outlet_id uuid not null,
-        foreign key (customer_id) references customers(id),
         foreign key (user_id) references users(id),
         foreign key (outlet_id) references outlets(id)
       );
