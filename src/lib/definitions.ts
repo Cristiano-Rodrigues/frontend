@@ -49,3 +49,10 @@ export type User = {
   role: string;
   permission: 'admin' | 'manager' | 'standard'
 }
+
+export type Item = {
+  id: string;
+  name: string;
+  amount: number;
+  price: number;
+}

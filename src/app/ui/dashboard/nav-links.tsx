@@ -34,7 +34,7 @@ export function NavLinks () {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col justify-between h-[calc(100%-114px)]">
+    <div className="flex flex-col justify-between h-[calc(100%-114px)] mt-16">
       <ul className="flex flex-col gap-2">
         {
           menuItems.map(({ name, href, Icon }) => (
