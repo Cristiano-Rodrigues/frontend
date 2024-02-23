@@ -7,11 +7,7 @@ import Link from "next/link";
 
 export default async function Users () {
   const outletId = await getCurrentOutlet()
-  const users = (await fetchUsers(outletId)).map(p => ({
-    ...p,
-    name: p.name.slice(0, 8) + '...',
-    email: p.email.slice(0, 8) + '...',
-  }))
+  const users = await fetchUsers(outletId)
 
   return (
     <div className="relative flex w-full h-full">
