@@ -178,7 +178,7 @@ export async function fetchSaleResults (outletId: string) {
     const lastMonthSalesSum = await sql<Sum>`
       select sum(sale_cost) from sales
       where
-        extract(day from now() - date) < 7 and
+        extract(day from now() - date) < 30 and
         outlet_id=${outletId};
     `
 
