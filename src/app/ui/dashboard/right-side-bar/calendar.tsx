@@ -69,7 +69,7 @@ function CalendarDays ({
           const isCurrentDay = (
             initialDate.getFullYear() == date.getFullYear() &&
             initialDate.getMonth() == date.getMonth() &&
-            date.getDate() == index + 1
+            date.getDate() == index - start + 1
           )
           const isInBetweenMonth = index >= start && index - start < end
 
