@@ -50,6 +50,12 @@ const getLastday = (year: number, month: number) => {
   return (new Date(year, month + 1, 0)).getDate()
 }
 
+const isCurrentDay = (day: number, target: Date, compare: Date) => (
+  target.getFullYear() == compare.getFullYear() &&
+  target.getMonth() == compare.getMonth() &&
+  target.getDate() == day
+)
+
 function CalendarDays ({
   date,
   initialDate
@@ -65,12 +71,9 @@ function CalendarDays ({
   return (
     <div className="grid grid-cols-7 grid-rows-6 gap-2">
       {
-        (new Array(42)).fill(null).map((_, index) => {
-          const isCurrentDay = (
-            initialDate.getFullYear() == date.getFullYear() &&
-            initialDate.getMonth() == date.getMonth() &&
-            date.getDate() == index - start + 1
-          )
+        Array.from({ length: 42 }, (_, index) => {
+          const day = index - start + 1
+          const isCurrDay = isCurrentDay(day, initialDate, date)
           const isInBetweenMonth = index >= start && index - start < end
 
           return (
@@ -78,7 +81,7 @@ function CalendarDays ({
               "flex justify-center items-center w-full h-8 cursor-pointer",
               {
                 "shadow-md rounded-md": isInBetweenMonth,
-                "bg-primary-100 text-white": isCurrentDay,
+                "bg-primary-100 text-white": isCurrDay,
               }
             )}>
               { index < start ? (
