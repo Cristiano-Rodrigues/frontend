@@ -1,5 +1,5 @@
 import Breadcrumbs from "@/app/ui/dashboard/medicines/breadcrumbs";
-import { CreateMedicineForm } from "@/app/ui/dashboard/medicines/forms/create-form";
+import { CreateMedicineForm } from "@/app/ui/dashboard/medicines/create-form";
 
 const breadcrumbs = [
   {
