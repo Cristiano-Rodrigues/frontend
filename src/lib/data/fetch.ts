@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 import {
-  Outlet, Product, Sale, SaleIten, User,
+  Outlet, Product, Sale, SaleIten, Supplier, User,
 } from '../definitions';
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -189,5 +189,28 @@ export async function fetchSaleResults (outletId: string) {
   } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch sale results.')
+  }
+}
+
+export async function fetchSuppliers () {
+  noStore()
+
+  try {
+    const data = await sql<Supplier>`
+      SELECT
+        *,
+        (
+        CASE WHEN is_available = true
+            THEN 'Sim'
+            ELSE 'Não'
+        END
+        ) as is_available
+      FROM suppliers;
+    `;
+
+    return data.rows
+  } catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch suppliers data.')
   }
 }

@@ -56,3 +56,11 @@ export type Item = {
   amount: number;
   price: number;
 }
+
+export type Supplier = {
+  id: string;
+  name: string;
+  address: string;
+  contact: string;
+  isAvailable: boolean;
+}

@@ -1,9 +1,12 @@
 import { Dropdown } from "@/app/ui/dashboard/medicines/dropdown";
 import { CustomTable } from "@/app/ui/dashboard/medicines/table";
+import { fetchSuppliers } from "@/lib/data/fetch";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-export default function Suppliers () {
+export default async function Suppliers () {
+  const sales = await fetchSuppliers()
+
   return (
     <div className="relative flex w-full h-full">
       <div className="flex flex-col gap-4 w-full h-full p-6 bg-lightestGray">
@@ -37,7 +40,7 @@ export default function Suppliers () {
           columns={
             ['Nome', 'Endereço', 'Contacto', 'Disponível' ]
           }
-          data={[]}
+          data={sales}
         />
       </div>
       <div className="absolute  w-[355px] bg-mediumLightGray"></div>
