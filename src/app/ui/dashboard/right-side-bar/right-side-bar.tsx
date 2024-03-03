@@ -23,7 +23,7 @@ export async function RightSideBar () {
   const outletId = await getCurrentOutlet()
   const {
     lastMonthSalesSum,
-    lastWeekSalesSum
+    currentDaySalesSum
   } = await fetchSaleResults(outletId)
 
 
@@ -32,7 +32,7 @@ export async function RightSideBar () {
       <div className="flex flex-col gap-2">
         <h4 className="font-bold">Resultados das vendas <span className="ml-1 font-normal text-xs text-darkGray">Este mês</span></h4>
         <div className="flex gap-2">
-          <InfoCard title="Total dos últimos 7 dias" amount={lastWeekSalesSum} />
+          <InfoCard title="Total de vendas de hoje" amount={currentDaySalesSum} />
           <InfoCard title="Total dos últimos 30 dias" amount={lastMonthSalesSum} />
         </div>
       </div>

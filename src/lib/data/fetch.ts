@@ -184,10 +184,10 @@ export async function fetchSaleResults (outletId: string) {
   }
 
   try {
-    const lastWeekSalesSum = await sql<Sum>`
+    const currentDaySalesSum = await sql<Sum>`
       select sum(sale_cost) from sales
       where
-        extract(day from now() - date) < 7 and
+        extract(day from now() - date) = 0 and
         outlet_id=${outletId};
     `
     const lastMonthSalesSum = await sql<Sum>`
@@ -198,7 +198,7 @@ export async function fetchSaleResults (outletId: string) {
     `
 
     return {
-      lastWeekSalesSum: lastWeekSalesSum.rows[0].sum ?? 0,
+      currentDaySalesSum: currentDaySalesSum.rows[0].sum ?? 0,
       lastMonthSalesSum: lastMonthSalesSum.rows[0].sum ?? 0
     }
   } catch (error) {
