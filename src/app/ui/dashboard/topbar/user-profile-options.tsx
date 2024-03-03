@@ -1,3 +1,5 @@
+'use client'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,9 +9,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { logout } from "@/lib/actions/logout";
 import Image from "next/image";
+import { useFormState } from "react-dom";
 
 export function UserProfileOptions () {
+  const [_, dispatch] = useFormState(logout, {})
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -33,9 +39,11 @@ export function UserProfileOptions () {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          Sair
-        </DropdownMenuItem>
+        <form action={dispatch}>
+          <DropdownMenuItem onSelect={console.log}>
+            <button type="submit" className="w-full h-full text-left">Sair</button>
+          </DropdownMenuItem>
+        </form>
       </DropdownMenuContent>
     </DropdownMenu>
   )

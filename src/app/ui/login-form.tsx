@@ -56,16 +56,16 @@ export function LoginForm () {
       </div>
       <div className="flex flex-col gap-2 items-center">
         <SubmitButton />
-        <span className="font-bold">Ou</span>
+        {/* <span className="font-bold">Ou</span>
         <button
           className="w-full h-[50px] bg-gray-300 font-bold rounded"
         >
           <p className="flex justify-center items-center gap-2">
             <FaGoogle /> Faça Login com o Google
           </p>
-        </button>
+        </button> */}
       </div>
-      <p className="m-auto">
+      {/* <p className="m-auto">
         Novo no Ez Pharma?{' '}
         <Link
           className="underline text-gray-400"
@@ -73,7 +73,7 @@ export function LoginForm () {
         >
           Criar conta.
         </Link>
-      </p>
+      </p> */}
     </form>
   )
 }

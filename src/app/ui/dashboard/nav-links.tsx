@@ -26,8 +26,8 @@ const menuItems = [
 
 const moreOptions = [
   { name: 'Configurações', href: '/settings', Icon: Cog6ToothIcon },
-  { name: 'Ajuda', href: '/help', Icon: QuestionMarkCircleIcon },
-  { name: 'Sobre', href: '/about', Icon: InformationCircleIcon },
+  // { name: 'Ajuda', href: '/help', Icon: QuestionMarkCircleIcon },
+  // { name: 'Sobre', href: '/about', Icon: InformationCircleIcon },
 ]
 
 export function NavLinks () {
