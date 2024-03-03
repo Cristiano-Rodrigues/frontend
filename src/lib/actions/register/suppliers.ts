@@ -7,15 +7,13 @@ type State = {
   success: boolean;
   errors?: {
     name?: string[];
-    address?: string[];
-    contact?: string[];
   };
   message?: string;
 }
 
 const RegisterSupplierSchema = z.object({
-  name: z.string({
-    invalid_type_error: 'Precisa preencher o nome do fornecedor'
+  name: z.string().min(1, {
+    message: 'Precisa preencher o nome do fornecedor'
   }),
   address: z.string().optional(),
   contact: z.string().optional(),

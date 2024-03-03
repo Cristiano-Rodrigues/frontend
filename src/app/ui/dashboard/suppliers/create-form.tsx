@@ -15,7 +15,7 @@ export function CreateSupplierForm () {
       {
         state.success && (
           <div className="flex flex-col gap-y-2 w-full bg-green-100 p-4 rounded-sm">
-            Produto cadastrado com sucesso!
+            Fornecedor cadastrado com sucesso!
           </div>
         )
       }

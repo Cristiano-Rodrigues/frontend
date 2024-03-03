@@ -82,7 +82,6 @@ export async function registerSale (items: Item[], prevState: State, formData: F
       ))
     )
   } catch (error) {
-    console.log(error)
     return {
       success: false,
       message: 'Occorreu um erro ao cadastrar a venda'
