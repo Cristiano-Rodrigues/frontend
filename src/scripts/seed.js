@@ -145,10 +145,12 @@ async function seedProducts (client) {
         name varchar(255) not null,
         designation varchar(255),
         price decimal(14,2) not null,
+        amount int not null default 0,
         type varchar(255),
         origin varchar(255),
         weight decimal(5,2),
         expiration date,
+        is_available boolean not null default true,
         outlet_id uuid not null,
         foreign key (outlet_id) references outlets(id)
       );

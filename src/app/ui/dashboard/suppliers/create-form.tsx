@@ -58,8 +58,7 @@ export function CreateSupplierForm () {
         <input type="text" name="contact" id="contact" placeholder="Contacto" className="p-3 bg-lightestGray rounded" />
       </div>
       <div className="flex flex-col gap-1 w-full">
-      <CustomSwitch name="isAvailable" label='Disponível' />
-        
+        <CustomSwitch name="isAvailable" label='Disponível' />
       </div>
       <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar</button>
     </form>

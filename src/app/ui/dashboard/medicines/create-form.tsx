@@ -2,6 +2,7 @@
 
 import { registerProduct } from "@/lib/actions/register/products";
 import { useFormState } from "react-dom";
+import { CustomSwitch } from "../suppliers/switch";
 
 export function CreateMedicineForm () {
   const [state, dispatch] = useFormState(registerProduct, {
@@ -31,6 +32,11 @@ export function CreateMedicineForm () {
                 <p key={error}>{error}</p>
               ))
             }
+            {
+              state.errors?.amount?.map(error => (
+                <p key={error}>{error}</p>
+              ))
+            }
           </div>
         )
       }
@@ -50,9 +56,9 @@ export function CreateMedicineForm () {
         </div>
         <div className="flex flex-col gap-1 w-full">
           <label htmlFor="type">
-            Tipo
+            Quantidade <span className="text-primary-100">*</span>
           </label>
-          <input type="text" name="type" id="type" placeholder="Tipo" className="p-3 bg-lightestGray rounded" />
+          <input type="number" name="amount" id="amount" placeholder="Quantidade" className="p-3 bg-lightestGray rounded" />
         </div>
       </div>
       <div className="flex w-full gap-x-6">
@@ -83,11 +89,22 @@ export function CreateMedicineForm () {
           <input name="expiration" type="date" id="expiration" placeholder="Expiração" className="p-3 bg-lightestGray rounded" />
         </div>
       </div>
+      <div className="flex w-full gap-x-6">
+        <div className="flex flex-col gap-1 w-full">
+          <label htmlFor="price">
+            Preço <span className="text-primary-100">*</span>
+          </label>
+          <input name="price" type="number" min={0} step={0.1} id="price" placeholder="Preço" className="p-3 bg-lightestGray rounded" />
+        </div>
+        <div className="flex flex-col gap-1 w-full">
+          <label htmlFor="type">
+            Tipo
+          </label>
+          <input type="text" name="type" id="type" placeholder="Tipo" className="p-3 bg-lightestGray rounded" />
+        </div>
+      </div>
       <div className="flex flex-col gap-1 w-full">
-        <label htmlFor="price">
-          Preço <span className="text-primary-100">*</span>
-        </label>
-        <input name="price" type="number" min={0} step={0.1} id="price" placeholder="Preço" className="p-3 bg-lightestGray rounded" />
+        <CustomSwitch name="isAvailable" label='Disponível' />
       </div>
       <button type="submit" className="px-6 py-2 bg-primary-100 text-white rounded mt-6">Adicionar</button>
     </form>
