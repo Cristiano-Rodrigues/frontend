@@ -60,6 +60,19 @@ export async function registerSale (items: Item[], prevState: State, formData: F
     }
   }
 
+  for (const item of items) {
+    const result = await sql`
+      SELECT (amount >= ${item.amount}) as enough FROM products WHERE id=${item.id}
+    `
+    const isEnough = result.rows[0].enough
+    if (!isEnough) {
+      return {
+        success: false,
+        message: `A quantidade de ${item.name} é inferior a ${item.amount}`
+      }
+    }
+  }
+
   try {
     const data = parsed.data
     const user = await getCurrentUser()
@@ -81,10 +94,18 @@ export async function registerSale (items: Item[], prevState: State, formData: F
         `
       ))
     )
+
+    await Promise.all(
+      items.map(async item => (
+        await sql`
+          UPDATE products SET amount = amount - ${item.amount} WHERE id = ${item.id}
+        `
+      ))
+    )
   } catch (error) {
     return {
       success: false,
-      message: 'Occorreu um erro ao cadastrar a venda'
+      message: 'Ocorreu um erro ao cadastrar a venda'
     }
   }
 
