@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/app/ui/dashboard/medicines/breadcrumbs";
 import { CreateSaleForm } from "@/app/ui/dashboard/sales/create-form";
 import { getCurrentOutlet } from "@/lib/actions/cookies";
-import { fetchProducts } from "@/lib/data/fetch";
+import { fetchAvailableProducts } from "@/lib/data/fetch";
 
 const breadcrumbs = [
   {
@@ -23,7 +23,7 @@ const breadcrumbs = [
 
 export default async function CreateSale () {
   const outletId = await getCurrentOutlet()
-  const products = await fetchProducts(outletId)
+  const products = await fetchAvailableProducts(outletId)
 
   return (
     <div className="flex flex-col w-full h-full gap-4 p-6 bg-lightestGray overflow-y-auto">

@@ -19,7 +19,7 @@ const RegisterProductSchema = z.object({
   origin: z.string().optional(),
   weight: z.string().optional(),
   expiration: z.string().optional(),
-  isAvailable: z.string().optional()
+  isAvailable: z.coerce.string().optional()
 })
 
 type State = {

@@ -9,6 +9,7 @@ export function CreateMedicineForm () {
     success: false,
     message: ''
   })
+  console.log(state)
 
   return (
     <form action={dispatch} className="flex flex-col gap-y-6 items-end">

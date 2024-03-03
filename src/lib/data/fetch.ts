@@ -39,6 +39,21 @@ export async function fetchProducts (outletId: string) {
   }
 }
 
+export async function fetchAvailableProducts (outletId: string) {
+  noStore()
+
+  try {
+    const data = await sql<Product>`
+      SELECT * FROM products WHERE outlet_id=${outletId} AND is_available = true;
+    `
+
+    return data.rows
+  } catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch available product data.')
+  }
+}
+
 export async function fetchSales (outletId: string) {
   noStore()
 
